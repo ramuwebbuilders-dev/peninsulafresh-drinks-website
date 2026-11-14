@@ -1816,3 +1816,119 @@ section {
         height: 54px !important;
     }
 }
+
+/* =========================================
+   MOBILE ONLY - COMPACT PRODUCT CLUSTER
+   Water + Apple on top
+   Orange + Milk below
+   ========================================= */
+
+@media (max-width: 520px) {
+
+    /* Product cluster container */
+    .hero .cluster {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, auto));
+
+        width: 100%;
+        max-width: 420px;
+        min-width: 0;
+
+        gap: 0;
+        padding: 18px 20px 20px;
+        margin: 0 auto;
+
+        justify-items: center;
+        align-items: center;
+
+        overflow: visible;
+        isolation: isolate;
+    }
+
+    /* All product images */
+    .hero .cluster img {
+        width: 118%;
+        max-width: none;
+        min-width: 0;
+        height: auto;
+
+        margin: 0 !important;
+        padding: 0;
+
+        position: relative;
+        top: auto;
+        left: auto;
+
+        object-fit: contain;
+
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+
+        filter: drop-shadow(
+            0 10px 9px rgba(0,55,25,.20)
+        );
+
+        /* Existing animations preserved */
+        transform: rotate(var(--r));
+    }
+
+    /* WATER - TOP LEFT */
+    .hero .cluster img:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+
+        left: 10%;
+        top: 20px;
+
+        z-index: 1;
+    }
+
+    /* APPLE - TOP RIGHT */
+    .hero .cluster img:nth-child(4) {
+        grid-column: 2;
+        grid-row: 1;
+
+        left: -10%;
+        top: 8px;
+
+        z-index: 2;
+    }
+
+    /* ORANGE - BOTTOM LEFT */
+    .hero .cluster img:nth-child(3) {
+        grid-column: 1;
+        grid-row: 2;
+
+        left: 10%;
+        top: -55px;
+
+        z-index: 3;
+    }
+
+    /* MILK - BOTTOM RIGHT */
+    .hero .cluster img:nth-child(2) {
+        grid-column: 2;
+        grid-row: 2;
+
+        left: -10%;
+        top: -45px;
+
+        z-index: 4;
+    }
+}
+
+/* Extra small mobile phones */
+@media (max-width: 360px) {
+
+    .hero .cluster {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .hero .cluster img {
+        width: 110%;
+    }
+}
