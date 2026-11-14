@@ -1524,3 +1524,130 @@ section {
         margin-bottom: 14px;
     }
 }
+
+/* =========================================
+   MOBILE - BIG OVERLAPPING PRODUCT CLUSTER
+   ========================================= */
+
+@media (max-width: 520px) {
+
+    /* Reduce mobile side spacing */
+    .hero .wrap {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    /* Product cluster */
+    .hero .cluster {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, auto);
+
+        justify-items: center;
+        align-items: center;
+
+        width: 100%;
+        max-width: 420px;
+        min-width: 0;
+        margin: 10px auto 0;
+        padding: 15px 12px 35px;
+
+        gap: 0;
+        overflow: visible;
+        isolation: isolate;
+    }
+
+    /* All four products larger */
+    .hero .cluster img {
+        width: 118%;
+        max-width: none;
+        min-width: 0;
+        height: auto;
+
+        margin: 0 !important;
+        padding: 0;
+
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+
+        object-fit: contain;
+
+        filter: drop-shadow(
+            0 12px 10px rgba(0,55,25,.22)
+        );
+
+        transform: rotate(var(--r));
+        animation: flt 5s ease-in-out infinite;
+    }
+
+    /* Water - top left */
+    .hero .cluster img:nth-child(1) {
+        --r: -9deg;
+        grid-column: 1;
+        grid-row: 1;
+        position: relative;
+        left: 12%;
+        top: 15px;
+        z-index: 1;
+        animation-delay: 0s;
+    }
+
+    /* Milk - top right */
+    .hero .cluster img:nth-child(2) {
+        --r: 7deg;
+        grid-column: 2;
+        grid-row: 1;
+        position: relative;
+        left: -12%;
+        top: 36px;
+        z-index: 2;
+        animation-delay: .6s;
+    }
+
+    /* Orange - bottom left */
+    .hero .cluster img:nth-child(3) {
+        --r: -7deg;
+        grid-column: 1;
+        grid-row: 2;
+        position: relative;
+        left: 15%;
+        top: -32px;
+        z-index: 3;
+        animation-delay: 1.2s;
+    }
+
+    /* Apple - bottom right */
+    .hero .cluster img:nth-child(4) {
+        --r: 9deg;
+        grid-column: 2;
+        grid-row: 2;
+        position: relative;
+        left: -15%;
+        top: -15px;
+        z-index: 4;
+        animation-delay: 1.8s;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+
+    .hero .wrap {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero .cluster {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero .cluster img {
+        width: 110%;
+    }
+}
