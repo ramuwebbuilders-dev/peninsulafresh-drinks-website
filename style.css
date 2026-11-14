@@ -1758,3 +1758,57 @@ section {
         min-width: 0;
     }
 }
+
+/* FIX - WhatsApp icon appearing too large */
+
+a.whatsapp-float {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    top: auto !important;
+    left: auto !important;
+
+    width: 60px !important;
+    height: 60px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+a.whatsapp-float svg {
+    display: block;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px;
+    max-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+@media (max-width: 520px) {
+    a.whatsapp-float {
+        width: 54px !important;
+        height: 54px !important;
+        right: 15px !important;
+        bottom: 18px !important;
+    }
+
+    a.whatsapp-float svg {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px;
+        max-width: 30px;
+        min-height: 30px;
+        max-height: 30px;
+    }
+}
