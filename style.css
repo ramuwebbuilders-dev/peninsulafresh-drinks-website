@@ -1651,3 +1651,79 @@ section {
         width: 110%;
     }
 }
+
+/* =========================================
+   PENINSULA FRESH - PRODUCT DROP ENTRANCE
+   ========================================= */
+
+/* Keep existing layout and positions */
+.hero .cluster.product-drop {
+    opacity: 1;
+}
+
+/* Entry: fall from top, then continue floating */
+.hero .cluster.product-drop img {
+    opacity: 0;
+
+    animation-name: productFall, flt;
+    animation-duration: 1.1s, 5s;
+    animation-timing-function:
+        cubic-bezier(.22, 1, .36, 1),
+        ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: both, none;
+}
+
+/* One by one entrance */
+.hero .cluster.product-drop img:nth-child(1) {
+    animation-delay: 0s, 1.1s;
+}
+
+.hero .cluster.product-drop img:nth-child(2) {
+    animation-delay: .3s, 1.4s;
+}
+
+.hero .cluster.product-drop img:nth-child(3) {
+    animation-delay: .6s, 1.7s;
+}
+
+.hero .cluster.product-drop img:nth-child(4) {
+    animation-delay: .9s, 2s;
+}
+
+/* Falling animation with soft landing */
+@keyframes productFall {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(-240px)
+            rotate(var(--r))
+            scale(.92);
+    }
+
+    70% {
+        opacity: 1;
+        transform:
+            translateY(8px)
+            rotate(var(--r))
+            scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotate(var(--r))
+            scale(1);
+    }
+}
+
+/* Respect reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+    .hero .cluster.product-drop img {
+        opacity: 1;
+        animation: none;
+        transform: rotate(var(--r));
+    }
+}
