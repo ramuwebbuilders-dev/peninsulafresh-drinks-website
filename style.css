@@ -1727,3 +1727,34 @@ section {
         transform: rotate(var(--r));
     }
 }
+
+/* ==========================================
+   MOBILE ONLY - PRODUCTS FIRST, CONTENT BELOW
+   Desktop layout remains unchanged
+   ========================================== */
+
+@media (max-width: 520px) {
+
+    /* Mobile hero layout */
+    .hero .wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    /* Products appear at the top */
+    .hero .cluster {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Heading, description and buttons below */
+    .hero .wrap > div:first-child {
+        order: 2;
+        width: 100%;
+        min-width: 0;
+    }
+}
